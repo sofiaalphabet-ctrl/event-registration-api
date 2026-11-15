@@ -1,7 +1,10 @@
 package kz.iitu.registration.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class EventInfo {
 
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private int id;
     private String title;
     private String location;
@@ -17,10 +20,6 @@ public class EventInfo {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
