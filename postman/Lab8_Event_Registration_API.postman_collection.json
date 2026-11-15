@@ -1,0 +1,122 @@
+{
+  "info": {
+    "name": "Event Registration API - Lab 8",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get all events",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Search events by title",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events?title=java"
+      }
+    },
+    {
+      "name": "Get event by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events/1"
+      }
+    },
+    {
+      "name": "Get missing event (404)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/events/999"
+      }
+    },
+    {
+      "name": "Create event (201)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Spring Boot Workshop\",\n  \"location\": \"Almaty\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Update event (200)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Updated Spring Boot Workshop\",\n  \"location\": \"Astana\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/events/4"
+      }
+    },
+    {
+      "name": "Invalid create (400)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \" \",\n  \"location\": \"Almaty\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{baseUrl}}/api/events"
+      }
+    },
+    {
+      "name": "Delete event (204)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/events/4"
+      }
+    },
+    {
+      "name": "Delete missing event (404)",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/events/999"
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    }
+  ]
+}
