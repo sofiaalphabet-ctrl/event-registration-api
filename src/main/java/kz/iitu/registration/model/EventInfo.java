@@ -6,6 +6,9 @@ public class EventInfo {
     private String title;
     private String location;
 
+    public EventInfo() {
+    }
+
     public EventInfo(int id, String title, String location) {
         this.id = id;
         this.title = title;
@@ -16,11 +19,23 @@ public class EventInfo {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getLocation() {
         return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }
